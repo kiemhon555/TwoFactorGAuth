@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#page {width:70%; margin:auto auto}
+ 
+#header-container {height:100px}
+ 
+#header{background: #0055FA; width:70%; height: 100%; margin:0}
+ 
+#menu-container {height:50px; margin:0; display: inline-block;}
+ 
+#menu {width:70%; height: 100%; margin:0; display: inline-block;}
+ 
+#content-container {height:100%; margin:0} 
+ 
+#content {width:70%; height:100%; margin:0}
+ 
+#footer-container {height:100px; margin:0; clear:both; display: inline-block;}
+ 
+#footer {width:70%; height:100%; margin:0 auto; display: inline-block;}
+
+.message {color: red; font-weight: bold; padding-left: 10px;}
+

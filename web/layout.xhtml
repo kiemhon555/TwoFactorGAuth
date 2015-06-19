@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Two Factor Authentication</title>
+        <h:outputStylesheet library="css" name="style.css" />
+        <h:outputStylesheet library="css" name="bootstrap.min.css" />
+        <h:outputScript library="js" name="jquery.min.js" />
+        <h:outputScript library="js" name="bootstrap.min.js" />
+    </h:head>
+    <h:body>
+        <div id="page">
+            <div id="header-container">
+                <div id="header">
+                    <ui:insert name="header">
+                        <h:graphicImage library="images" name="Two-factor-Authentication.png" />
+                    </ui:insert>
+                </div>
+            </div>
+            <div id="menu-container">
+                <div id="menu">
+                    <ui:insert name="menu">
+                        <h:form>
+                            <ul class="nav nav-pills">
+                                <li><h:commandLink action="home" value="Home"/></li>
+                                <h:panelGroup rendered="#{not authentication.loggedIn}">  
+                                    <li><h:commandLink action="register" value="Register"/></li>
+                                    <li><h:commandLink action="login" value="Login"/></li>
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{authentication.loggedIn}">  
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">User <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><h:commandLink action="user" value="User Details"/></li>
+                                            <li><h:commandLink action="edit" value="Edit Infomation"/></li>
+                                            <li><h:commandLink action="change" value="Change Password"/></li>
+                                        </ul>
+                                    </li>
+                                    <li><h:commandLink action="#{authentication.doLogout}" value="Logout"/></li>
+                                </h:panelGroup>
+                            </ul>
+                        </h:form>
+                    </ui:insert>
+                </div>
+            </div>
+            <div id="content-container">
+                <div id="content">
+                    <ui:insert name="content">
+                    </ui:insert>
+                </div>
+            </div>
+            <div id="footer-container">
+                <div id="footer">
+                    <ui:insert name="footer">
+                        <p>&reg; Two Factor Authentication</p>
+                    </ui:insert>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+

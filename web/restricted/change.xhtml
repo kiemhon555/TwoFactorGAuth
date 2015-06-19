@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition template="../layout.xhtml">
+            <ui:define name="content">
+                <h:form styleClass="form-horizontal" id="form"> 
+                    <h:panelGrid columns="3">
+
+                        <h:outputLabel styleClass="control-label col-sm-2" for="passwordNew" value="New password: "/>
+                        <h:inputSecret styleClass="form-control" id="passwordNew" value="#{userManager.passwordNew}" size="30"
+                                       required="true"
+                                       requiredMessage="Enter a new password"/>
+                        <h:message styleClass="message" for="passwordNew"/> 
+
+
+                        <h:outputLabel styleClass="control-label col-sm-2" for="password" value="Password: "/>
+                        <h:inputSecret styleClass="form-control" id="password" value="#{userManager.password}" size="30"
+                                       required="true"
+                                       requiredMessage="Enter old password"/>
+                        <h:message styleClass="message" for="password"/>                
+
+                        <h:outputLabel styleClass="control-label col-sm-2" for="passwordAgain" value="Retype password: "/>
+                        <h:inputSecret styleClass="form-control" id="passwordAgain" value="#{userManager.passwordAgain}" size="30"
+                                       required="true"
+                                       requiredMessage="Please retype your password"/>
+                        <h:message styleClass="message" for="passwordAgain"/>
+
+                        &nbsp;
+                        <h:commandButton styleClass="btn btn-primary" value="Change Pass" action="#{userManager.doChange()}"/>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

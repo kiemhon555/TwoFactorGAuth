@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition template="../layout.xhtml">
+            <ui:define name="content">
+                <h:form styleClass="form-horizontal" id="form"> 
+                    <h:panelGrid columns="3">
+
+                        <h:outputLabel styleClass="control-label col-sm-2" for="email" value="Email: "/>
+                        <h:inputText id="email" value="#{userManager.email}" size="30"
+                                     required="true"
+                                     requiredMessage="Enter an email"/>
+                        <h:message styleClass="message" for="email"/>
+
+                        <h:outputLabel styleClass="control-label col-sm-2" for="address" value="Address: "/>
+                        <h:inputTextarea id="address" value="#{userManager.address}" 
+                                         cols="27" required="true" 
+                                         requiredMessage="Enter an address" />
+                        <h:message styleClass="message" for="address"/>
+
+                        <h:outputLabel styleClass="control-label col-sm-2" for="phone" value="Phone: "/>
+                        <h:inputText id="phone" value="#{userManager.phone}" size="30"
+                                     required="true"
+                                     requiredMessage="Enter a phone"/>
+                        <h:message styleClass="message" for="phone"/>
+
+                        &nbsp;
+                        <h:commandButton styleClass="btn btn-primary" value="Edit" action="#{userManager.doEdit()}"/>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition template="../layout.xhtml">
+            <ui:define name="content">
+                <h:panelGroup rendered="#{authentication.loggedIn}">
+                    <h1><h:outputText value="Welcome #{sessionScope.user}"/></h1>
+                </h:panelGroup>
+                <h:panelGrid columns="2">
+
+                    <h:outputLabel styleClass="control-label col-sm-2" for="email" value="Email: "/>
+                    <h:outputText value="#{userManager.email}"/>
+
+                    <h:outputLabel styleClass="control-label col-sm-2" for="address" value="Address: "/>
+                    <h:outputText value="#{userManager.address}"/>
+
+                    <h:outputLabel styleClass="control-label col-sm-2" for="phone" value="Phone: "/>
+                    <h:outputText value="#{userManager.phone}"/>
+
+                </h:panelGrid>
+                <h:graphicImage url="#{userManager.qrUrl}"/>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

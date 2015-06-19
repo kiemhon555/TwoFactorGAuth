@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition template="../layout.xhtml">
+            <ui:define name="content">
+                <h3><h:outputText value="Login"/></h3>
+                <h:form styleClass="form-horizontal">
+
+                    <h:panelGrid columns="3" rendered="#{not authentication.loggedIn}">
+
+                        <h:outputLabel styleClass="control-label col-sm-2" for="username" value="Username:"/>     
+                        <h:inputText styleClass="form-control" id="username" value="#{authentication.username}" size="30" 
+                                     required="true" 
+                                     requiredMessage="Please enter your username"/>
+                        <h:message styleClass="message" for="username"/>
+
+                        <h:outputLabel styleClass="control-label col-sm-2" for="password" value="Password:"/>     
+                        <h:inputSecret styleClass="form-control" id="password" value="#{authentication.password}" size="30" 
+                                       required="true" 
+                                       requiredMessage="Please enter your password"/>
+                        <h:message styleClass="message" for="password"/>
+
+                        <h:outputLabel styleClass="control-label col-sm-2" for="otp" value="OTP Code:"/>     
+                        <h:inputText styleClass="form-control" id="otp" value="#{authentication.otpCode}" size="30" 
+                                     required="true" 
+                                     requiredMessage="Please enter your OTP code">                                                     
+                        </h:inputText>
+                        <h:message styleClass="message" for="otp"/>
+
+                        &nbsp;
+                        <h:commandButton styleClass="btn btn-primary" value="Login" action="#{authentication.doLogin()}"/>
+
+                    </h:panelGrid>
+                    <h:commandButton styleClass="btn btn-primary" value="Logout"
+                                     action="#{authentication.doLogout}"
+                                     rendered="#{authentication.loggedIn}" />
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
